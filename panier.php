@@ -3,19 +3,8 @@
 session_start();
 include('functions.php');
 
-$listeArticles = getArticles();
+var_dump ($_SESSION["panier"]);
 
-if (isset($_POST["idEnvoiAjoutPanier"])){
-    $id = $_POST["idEnvoiAjoutPanier"];
-    $article = getArticleFromId($listeArticles, $id);
-    ajoutPanier($article);
-    // var_dump($_SESSION["panier"]);
-}
-
-if (!isset($_SESSION['panier'])) {
-    $_SESSION['panier'] = array();
-}
-    
 ?>
 
 <!DOCTYPE html>
@@ -47,16 +36,12 @@ if (!isset($_SESSION['panier'])) {
 
             <main>
 
-            <?php
+                <?php
 
-                $listeArticles = getArticles();
-
-                showArticles($listeArticles);
-
-             
-                
-
-            ?>
+                    showPanier();
+                    afficherBoutons();
+                    
+                ?>
 
 
 
