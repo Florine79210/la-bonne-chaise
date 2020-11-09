@@ -3,7 +3,23 @@
 session_start();
 include('functions.php');
 
-var_dump ($_SESSION["panier"]);
+if (isset ($_POST['idModifierQuantite'])){
+    modifierQuantite();
+}
+
+if (isset ($_POST['idSupprimerArticle'])){
+    supprArticle();
+
+// var_dump ($_POST['idSupprimerArticle']);
+}
+
+if (isset ($_POST["viderPanier"])){
+    viderPanier();
+}
+
+// var_dump ($_SESSION["panier"]);
+
+
 
 ?>
 
@@ -38,9 +54,9 @@ var_dump ($_SESSION["panier"]);
 
                 <?php
 
-                    showPanier();
+                    showPanier("panier.php");
                     afficherBoutons();
-                    
+                     
                 ?>
 
 

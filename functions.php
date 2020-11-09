@@ -14,9 +14,7 @@ function showArticles($listeArticles){
 
     foreach ($listeArticles as $article){
 
-
         echo "<div class=\"container\">";
-        echo "<form action=\"index.php\" method=\"post\">";
 
             echo "<div class=\"row\">";
 
@@ -41,9 +39,11 @@ function showArticles($listeArticles){
                     echo "</div>";        
 
                     echo "<div class=\"row\">";
-                        echo "<div class=\"col-md-12\">";         
-                            echo "<input type=\"submit\" name=\"ajoutPanier\" value=\"Ajouter au panier\">";
+                        echo "<div class=\"col-md-12\">";
+                        echo "<form action=\"index.php\" method=\"post\">";         
                             echo "<input type=\"hidden\" name= \"idEnvoiAjoutPanier\" value=\"" . $article["id"] . "\">";
+                            echo "<input type=\"submit\" name=\"ajoutPanier\" value=\"Ajouter au panier\">";
+                        echo "</form>";
                         echo "</div>";
                     echo "</div>";
 
@@ -55,7 +55,6 @@ function showArticles($listeArticles){
                 
             echo "</div>"; 
 
-        echo "</form>";
         echo "</div>";  
     }                
 }
@@ -82,79 +81,182 @@ function ajoutPanier($article){
     }
 
     if (!$articleAjoute){
-        $article["quantité"] = 1;
-        array_push($_SESSION["panier"], $article);
+        $article['quantite'] = 1;
+        array_push($_SESSION['panier'], $article);
     }
   
 }
 
-function showPanier(){
+function showPanier($nomDePage){
 
     foreach ($_SESSION["panier"] as $article){
 
         echo "<div class=\"container\">";
-
             echo "<div class=\"row\">";
+                
+                echo "<div class=\"col-md-8\">";
+                    
+                    echo "<h2>" .  $article['name'] . "<h2>\n";
+                    echo "<img src=\"images/" . $article['picture'] . "\">";
 
-                echo "<div class=\"col-md-10\">";
-
-                    echo "<div class=\"row\">";
-                        echo "<form action=\"index.php\" method=\"post\">";
-
-                            echo "<div class=\"col-md-5\">";
-                                echo "<h2>" .  $article['name'] . "<h2>\n";
-                                echo "<img src=\"images/" . $article['picture'] . "\">";
-                            echo "</div>";
+                echo "</div>";
                              
-                            echo "<div class=\"col-md-5\">";
-                                echo "<p>Prix unitaire : " . $article["price"] . "<p>\n";  
-                                echo "<input type=\"number\" name=\"quantité\" min=\"1\" max=\"12\" value= \"" . $article ["quantité"] . "\">";
-                                echo "<input type=\"hidden\" name=\"idmodifierQuantité\" value=\"?\">";      
-                            echo "</div>";
+                echo "<div class=\"col-md-4\">";
 
-                        echo "</form>";
+                    echo "<div class=\"row\">";       
+                        echo "<div class=\"col-md-12\">";
+                            echo "<p>Prix unitaire : " . $article["price"] . "<p>\n"; 
+                        echo "</div>";
                     echo "</div>";
 
-                echo "<div class=\"col-md-2\">";
-                    echo "<form action=\"index.php\" method=\"post\">";
-                        echo "<input type=\"submit\" name=\"suprimer\" value=\"Suprimer l'article\">";
-                        echo "<input type=\"hidden\" name=\"idSuprimerArticle\" value=\"?\">";
-                    echo "</form>";
-                echo "</div>";  
+                    echo "<div class=\"row\">";
+                        echo "<form action=\"".$nomDePage."\" method=\"post\">";
+                            echo "<div class=\"col-md-12\">";
+                                echo "<input type=\"number\" name=\"nouvelleQuantite\" min=\"1\" max=\"12\" value=\"" .$article['quantite']. "\">";
+                                echo "<input type=\"hidden\" name=\"idModifierQuantite\" value=\"" .$article['id']. "\">";    
+                                echo "<button type=\"submit\"> modifier </button>";  
+                            echo "</div>";
+                        echo "</form>";    
+                    echo "</div>";
+
+                    echo "<div class=\"row\">";       
+                        echo "<div class=\"col-md-12\">";
+                            echo "<form action=\"".$nomDePage."\" method=\"post\">";
+                                echo "<input type=\"hidden\" name=\"idSupprimerArticle\" value=\"" .$article['id']. "\">";  
+                                echo "<button type=\"submit\"> Supprimer l'article </button>"; 
+                            echo "</form>";
+                        echo "</div>"; 
+                    echo "</div>"; 
+                        
+                echo "</div>";
 
             echo "</div>"; 
-
         echo "</div>";  
 
     }
 }
+
+
+function modifierQuantite(){
+
+    $idModifierQuantite = $_POST["idModifierQuantite"];
+
+        for ($i = 0; $i < count($_SESSION['panier']); $i++){
+
+            if ($_SESSION['panier'][$i]['id'] == $idModifierQuantite){
+                $_SESSION['panier'][$i]['quantite'] = $_POST['nouvelleQuantite'];
+            }
+        }
+}
+ 
+
+ function supprArticle(){
+
+        for ($i = 0; $i < count($_SESSION['panier']); $i++){
+
+            if ($_SESSION['panier'][$i]['id'] == $_POST["idSupprimerArticle"]){
+                array_splice($_SESSION['panier'], $i, 1);
+                
+                echo "<script> alert(\"Article retiré du panier\");</script>";
+            } 
+        }
+ }
+
 
 function afficherBoutons(){
 
         if (!empty($_SESSION["panier"])){
 
             echo "<div class=\"container\">";
-
                 echo "<div class=\"row\">";
+
                     echo "<div class=\"col-md-6\">";
-                        echo "<a>";
-                            echo "<button> type=button Valider le panier </button>";
+                        echo "<a href=\"validation.php\">";
+                            echo "<button> Valider le panier </button>"; 
                         echo "</a>";   
                     echo "</div>";
-                echo "</div>";
 
-                echo "<div class=\"row\">";
                     echo "<div class=\"col-md-6\">";
-                    echo "<form action=\"index.php\" method=\"post\">";
-                        echo "<input type=\"submit\" name=\"viderderPanier\" value=\"Vider le panier\">";
-                        echo "<input type=\"hidden\" name=\"idViderPanier\" value=\"?\">";
-                    echo "</form>";
+                        echo "<form action=\"panier.php\" method=\"post\">";
+                            echo "<input type=\"hidden\" name=\"viderPanier\" value=\"true\">";
+                            echo "<button type=\"submit\"> Vider le panier </button>";    
+                        echo "</form>";
                     echo "</div>";
-                echo "</div>";
 
+                echo "</div>";
             echo "</div>";  
         }
 }
+
+
+
+function viderPanier(){
+
+        $_SESSION['panier'] = array();
+       
+        echo "<script> alert(\"Le panier est vide.\");</script>";   
+
+}
+
+function validerVider(){
+
+    if (!empty($_SESSION["panier"])){
+
+        echo "<div class=\"container\">";
+            echo "<div class=\"row\">";
+
+                echo "<div class=\"col-md-6\">";
+                    echo "<a href=\"validation.php\">";
+                        echo "<button> Valider la commande </button>"; 
+                    echo "</a>";   
+                echo "</div>";
+
+                echo "<div class=\"col-md-6\">";
+                    echo "<form action=\"validation.php\" method=\"post\">";
+                        echo "<input type=\"hidden\" name=\"annulerCommande\" value=\"true\">";
+                        echo "<button type=\"submit\"> Annuler la commande </button>";    
+                    echo "</form>";
+                echo "</div>";
+
+            echo "</div>";
+        echo "</div>";  
+    }
+}
+
+function annulerLaCommande(){
+
+    $_SESSION['panier'] = array();
+   
+    echo "<script> alert(\"Vous avez annulé la commande.\");</script>";   
+
+}
+
+
+
+//  function totalProduit(){
+
+//     for ($i = 0; $i < count($_SESSION['panier']); $i++){
+
+//         $_SESSION['panier'][$i]['quantite'] * $_SESSION['panier'][$i]['price'];
+
+//     }
+// }
+
+
+
+
+function totalPanier(){
+
+    for ($i = 0; $i < count($_SESSION['panier']); $i++){
+        $_SESSION['panier'][$i]['price'] + $_SESSION['panier'][$i]['price'];
+
+        echo
+
+}
+
+// function totalARegler(){
+
+// }
 
         
 

@@ -3,21 +3,22 @@
 session_start();
 include('functions.php');
 
-// var_dump($_SESSION["panier"]);
-
-if (!isset ($_SESSION['panier'])){
-    $_SESSION['panier'] = array();
+if (isset ($_POST['idModifierQuantite'])){
+    modifierQuantite();
 }
 
-$listeArticles = getArticles();
+if (isset ($_POST['idSupprimerArticle'])){
+    supprArticle();
 
-if (isset($_POST["idEnvoiAjoutPanier"])){
-    $id = $_POST["idEnvoiAjoutPanier"];
-    $article = getArticleFromId($listeArticles, $id);
-    ajoutPanier($article);    
+// var_dump ($_POST['idSupprimerArticle']);
 }
 
-    
+if (isset ($_POST["annulerCommande"])){
+    annulerLaCommande();
+}
+
+// var_dump ($_SESSION["panier"]);
+
 ?>
 
 <!DOCTYPE html>
@@ -49,14 +50,11 @@ if (isset($_POST["idEnvoiAjoutPanier"])){
 
             <main>
 
-            <?php
-
-                showArticles($listeArticles);
-             
-            ?>
-
-
-
+                <?php
+                  showPanier("validation.php");
+                  validerVider()
+                ?>
+            
             </main>
         
         </body>
