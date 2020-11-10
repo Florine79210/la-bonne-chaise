@@ -5,8 +5,13 @@ include('functions.php');
 
 // var_dump($_SESSION["panier"]);
 
+
 if (!isset ($_SESSION['panier'])){
     $_SESSION['panier'] = array();
+}
+
+if (isset ($_POST["viderPanier"])){
+    viderPanier();
 }
 
 $listeArticles = getArticles();
@@ -15,6 +20,14 @@ if (isset($_POST["idEnvoiAjoutPanier"])){
     $id = $_POST["idEnvoiAjoutPanier"];
     $article = getArticleFromId($listeArticles, $id);
     ajoutPanier($article);    
+}
+
+if (isset ($_POST["validerCommande"])){
+    validerLaCommande();
+}
+
+if (isset ($_POST["annulerCommande"])){
+    annulerLaCommande();
 }
 
     
@@ -32,6 +45,7 @@ if (isset($_POST["idEnvoiAjoutPanier"])){
 
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
             <link rel="stylesheet" href="style.css">
+            <link rel="stylesheet" href="accueil.css">
         
         
 
@@ -67,4 +81,4 @@ if (isset($_POST["idEnvoiAjoutPanier"])){
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
  
- </html>
+    </html>

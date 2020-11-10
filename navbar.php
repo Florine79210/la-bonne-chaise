@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse justify-content-center text-center" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-link p-3 mr-4 ml-4" href="index.php"><span>Acceuil</span></a>
-            <a class="nav-link p-3 mr-4 ml-4" href="panier.php"><span>Panier</span></a>
+            <a class="nav-link p-3 mr-4 ml-4" href="panier.php"><span>Panier<span>(<?php echo nbrArticlesPanier(); ?>)</span></span></a>
         </div>
     </div>
 
