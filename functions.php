@@ -68,7 +68,7 @@ function showArticles($listeArticles){
                         echo "</div>";
 
                         echo "<div class=\"col-md-6\">";
-                        echo "<form action=\"produits.php\" method=\"post\">";         
+                        echo "<form action=\"produit.php\" method=\"post\">";         
                             echo "<input type=\"hidden\" name= \"idDetailsproduit\" value=\"" . $article["id"] . "\">";
                             echo "<input class=\"mt-3 pt-2 pr-3 pb-2 pl-3 btns btn-details\" type=\"submit\" name=\"detailsProduit\" value=\"Détails du produit\">";
                         echo "</form>";
@@ -179,43 +179,39 @@ function showPanier($nomDePage){
 
     foreach ($_SESSION["panier"] as $article){
 
-        echo "<div class=\"container voir_panier\">";
-            echo "<div class=\"row\">";
+        echo "<div class=\"container mt-5 mb-5 pt-3 pb-3 voir_panier\">";
+            echo "<div class=\"row align-items-center\">";
                 
-                echo "<div class=\"col-md-4\">";
+                echo "<div class=\"col-md-4 text-center\">";
                     
-                    echo "<h2>" .  $article['name'] . "<h2>\n";
+                    echo "<h2 class=\"mb-3\">" .  $article['name'] . "<h2>\n";
                     echo "<img class=\"image_article\" src=\"images/" . $article['picture'] . "\">";
 
                 echo "</div>";
                              
-                echo "<div class=\"col-md-5\">";
+                echo "<div class=\"col-md-4\">";
 
-                    echo "<div class=\"row\">";       
-                        echo "<div class=\"col-md-12\">";
-                            echo "<p>Prix unitaire : " . $article["price"] . " €<p>\n"; 
-                        echo "</div>";
+                    echo "<div class=\"row mb-4 justify-content-center\">";       
+                            echo "<p>Prix unitaire : <span>" . $article["price"] . " €</span><p>\n"; 
                     echo "</div>";
 
                     
                     
-                    echo "<div class=\"row\">";
-                        echo "<form action=\"".$nomDePage."\" method=\"post\">";
-                            echo "<div class=\"col-md-12 d-flex flex-row\">";
-                                echo "<p class=\"mr-2\" >Quantité :<p>";
+                    echo "<div class=\"row justify-content-center\">";
+                        echo "<form class=\"form-row\" action=\"".$nomDePage."\" method=\"post\">";
+                                echo "<p class=\"mt-2 mr-2\" >Quantité :<p>";
                                 echo "<input type=\"hidden\" name=\"idModifierQuantite\" value=\"" .$article['id']. "\">"; 
                                 echo "<input class=\"mr-3 btn-saisie-nbr\" type=\"number\" name=\"nouvelleQuantite\" min=\"1\" max=\"12\" value=\"" .$article['quantite']. "\">";   
-                                echo "<button class=\"btns\" type=\"submit\"> modifier </button>";
-                            echo "</div>";
+                                echo "<button class=\" pt-2 pr-3 pb-2 pl-3 btns btn_modif\" type=\"submit\"> Modifier </button>";
                         echo "</form>";    
                     echo "</div>";
 
                 echo "</div>";
 
-                echo "<div class=\"col-md-3\">";
+                echo "<div class=\"col-md-4 text-center\">";
                     echo "<form action=\"".$nomDePage."\" method=\"post\">";
                         echo "<input type=\"hidden\" name=\"idSupprimerArticle\" value=\"" .$article['id']. "\">";  
-                        echo "<button type=\"submit\"> Supprimer l'article </button>"; 
+                        echo "<button class=\" pt-2 pr-3 pb-2 pl-3 btns btn_suppr\" type=\"submit\"> Supprimer l'article </button>"; 
                     echo "</form>";
                 echo "</div>"; 
                     
@@ -265,19 +261,19 @@ function afficherBoutons(){
 
         if (!empty($_SESSION["panier"])){
 
-            echo "<div class=\"container\">";
+            echo "<div class=\"container mt-5 mb-5 valider_vider\">";
                 echo "<div class=\"row\">";
 
-                    echo "<div class=\"col-md-6\">";
+                    echo "<div class=\"col-md-6 text-center\">";
                         echo "<a href=\"validation.php\">";
-                            echo "<button> Valider le panier </button>"; 
+                            echo "<button class=\"pt-2 pr-3 pb-2 pl-3 btns btn_valider\"> Valider le panier </button>"; 
                         echo "</a>";   
                     echo "</div>";
 
-                    echo "<div class=\"col-md-6\">";
+                    echo "<div class=\"col-md-6 text-center\">";
                         echo "<form action=\"index.php\" method=\"post\">";
                             echo "<input type=\"hidden\" name=\"viderPanier\" value=\"true\">";
-                            echo "<button type=\"submit\"> Vider le panier </button>";    
+                            echo "<button  class=\"pt-2 pr-3 pb-2 pl-3 btns btn_vider\"type=\"submit\"> Vider le panier </button>";    
                         echo "</form>";
                     echo "</div>";
 
@@ -338,7 +334,7 @@ function affichageTotalArticles(){
 
     if ($_SESSION['panier']) {
         $totalArticles = number_format($totalArticles, 2, ',', ' ');
-        echo "Total des achats : " . $totalArticles . " €\n";
+        echo "<p class=\"text-center totals total_articles\">Total des achats : <span>" . $totalArticles . " €</span></p>";
     }
 }
 
@@ -356,7 +352,7 @@ function affichageTotalFraisPort(){
 
     if ($_SESSION['panier']) {
         $totalFraisPort = number_format($totalFraisPort, 2, ',', ' ');
-        echo "Total des frais de port : " . $totalFraisPort . " €\n";
+        echo "<p class=\"text-center totals\">Total des frais de port : <span>" . $totalFraisPort . " €</span></p>";
     }
 }
 
@@ -373,7 +369,7 @@ function affichageTotalARegler(){
 
     if ($_SESSION['panier']) {
         $totalARegler = number_format($totalARegler, 2, ',', ' ');
-        echo "Total à régler : " . $totalARegler . " €\n";
+        echo "<p class=\"text-center total_a_regler\">Total à régler : <span>" . $totalARegler . " €</span></p>";
     }
 }
 

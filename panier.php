@@ -63,9 +63,9 @@ if (isset ($_POST["viderPanier"])){
                 <?php
 
                     showPanier("panier.php");
-                    afficherBoutons();
                     affichageTotalArticles();
-                     
+                    afficherBoutons();
+                    
                 ?>
 
 

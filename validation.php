@@ -37,6 +37,7 @@ if (isset ($_POST["annulerCommande"])){
             <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet"> 
 
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+            <link rel="stylesheet" href="validation.css">
             <link rel="stylesheet" href="style.css">
         
         
@@ -64,78 +65,97 @@ if (isset ($_POST["annulerCommande"])){
 
                 ?>
 
+                <div class="container mt-5 mb-5 valider_vider_panier">
+                    <div class="row">
+
+                        <div class="col-md-6 text-center">
 
     <!-- BTN VALIDER LA COMMANDE -->
 <!-- ---------------------------------------------------------------------------------------------------------------------------------------- -->
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalValidation">
-                  Valider la commande
-                </button>
+                            <button type="button" class="btn btns_V_A btn_valider" data-toggle="modal" data-target="#modalValidation">
+                            Valider la commande
+                            </button>
 
-                <div class="modal" id="modalValidation" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Félicitation !</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body text-center">
-                                <p>La commande à été validée.</p>
-                                <br>
-                                <?php
-                                    echo "<p>Votre commande sera expédié <br> le ". date('d-m-Y', strtotime(date('d-m-Y') . ' + 3 days')). "</p>"
-                                ?>
-                            </div>
-                            <div class="modal-footer d-flex justify-content-center">
+                            <div class="modal" id="modalValidation" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
 
-                                <form action="index.php" method="post">
-                                    <input type="hidden" name="validerCommande">
-                                    <button type="submit" class="btn btn-primary">Revenir à l'Accueil</button>
-                                </form>
+                                        <div class="mt-3 modal-header-center">
+                                            <h5 class="modal-title">Félicitation !</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
 
-                            </div>
+                                        <div class="modal-body text-center">
+                                            <p>La commande à été <span>validée</span>.</p>
+                                            <br>
+                                            <?php
+                                                echo "<p>Votre commande sera expédié <br> le <span>". date('d-m-Y', strtotime(date('d-m-Y') . ' + 3 days')). "</span></p>"
+                                            ?>
+                                        </div>
+
+                                        <div class="modal-footer d-flex justify-content-center">
+
+                                            <form action="index.php" method="post">
+                                                <input type="hidden" name="validerCommande">
+                                                <button type="submit" class="btn btns btn-valider-accueil">Revenir à l'Accueil</button>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>             
+
                         </div>
-                    </div>
-                </div>               
 
 
     <!-- BTN ANNULER LA COMMANDE -->
 <!-- ---------------------------------------------------------------------------------------------------------------------------------------- -->
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAnnulation">
-                  Annuler la commande
-                </button>
+                        <div class="col-md-6 text-center">
 
-                <div class="modal" id="modalAnnulation" tabindex="-1">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title"> ! Attention !</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body text-center">
-                                <p>Êtes-vous sûr de vouloir<br>ANNULER la commande ?</p>
-                            </div>
-                            <div class="modal-footer d-flex justify-content-center">
+                            <button type="button" class="btn btns_V_A btn_annuler" data-toggle="modal" data-target="#modalAnnulation">
+                            Annuler la commande
+                            </button>
 
-                            <form action="validation.php" method="post">
-                                    <input type="hidden" name="nePasAnnulerCommande">
-                                    <button type="submit" class="btn btn-primary">Non<br>Revenir à la Commande</button>
-                                </form>
+                            <div class="modal" id="modalAnnulation" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
 
-                                <form action="index.php" method="post">
-                                    <input type="hidden" name="annulerCommande">
-                                    <button type="submit" class="btn btn-primary">Oui<br>Revenir à l'Accueil</button>
-                                </form>
+                                        <div class="mt-3 modal-header-center">
+                                            <h5 class="modal-title"> ! Attention !</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
 
-                            </div>
+                                        <div class="modal-body-center">
+                                            <p>Êtes-vous sûr de vouloir<br><span>ANNULER</span> la commande ?</p>
+                                        </div>
+
+                                        <div class="modal-footer d-flex justify-content-center">
+
+                                            <form action="validation.php" method="post">
+                                                <input type="hidden" name="nePasAnnulerCommande">
+                                                <button type="submit" class="mr-1 btn btns btn-retour-commande">Non<br>Revenir à la Commande</button>
+                                            </form>
+
+                                            <form action="index.php" method="post">
+                                                <input type="hidden" name="annulerCommande">
+                                                <button type="submit" class="ml-1 btn btns btn-annuler-accueil">Oui<br>Revenir à l'Accueil</button>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>               
+
                         </div>
+
                     </div>
-                </div>               
+                </div>
 
             </main>
         

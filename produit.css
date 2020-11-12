@@ -1,3 +1,6 @@
+    /* DETAILS PRODUIT */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
 .details_article{
     border-style:solid;
     border-width: 3px;
@@ -22,7 +25,7 @@
 .details_article .btn-ajout-panier{
     background-color: #7e1111;
     border-color: #7e1111;
-    border-radius: 30px;
+    border-radius: 20px;
     border-style: outset;
     color: #ffffff;
     font-family: 'Source Sans Pro', Garamond, Arial;
