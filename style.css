@@ -4,7 +4,7 @@ html,body
     height: 100%;
     margin: 0px;
     padding: 0px;
-    /* margin-top: 20vh; */
+    margin-top: 15vh;
 }
 
 /* NAVBAR */
@@ -17,13 +17,20 @@ html,body
 
 nav h1 {
     color: #000000;
+    font-family: 'Lora', Garamond, Arial;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 55px;
 }
 
 .navbar-nav a {
     color: #000000;
+    font-family: 'Lora', Garamond, Arial;
     font-size: 40px;
+}
+
+.navbar-nav a .quantite-panier {
+  font-size: 30px;
+  font-style: italic;
 }
 
 .navbar-nav a:hover {

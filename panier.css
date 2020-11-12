@@ -1,25 +1,30 @@
-.fiche_article{
+.voir_panier {
     border-style:solid;
     border-width: 3px;
     border-color: #000000;
 }
 
-.fiche_article h2{
+.voir_panier h2 {
     font-family: 'Lora', Garamond, Arial;
     font-weight: bold;
     font-size: 45px;
 }
 
-.fiche_article p{
+.voir_panier p {
     font-family: 'Source Sans Pro', Garamond, Arial;
     font-size: 25px;
 }
 
-.fiche_article p span{
+.voir_panier p span{
     font-weight:bold;
 }
 
-.fiche_article .btns{
+.voir_panier .btn-saisie-nbr {
+    width:60px;
+
+}
+
+.voir_panier .btns {
     border-radius: 30px;
     border-style: outset;
     color: #ffffff;
@@ -28,30 +33,30 @@
     font-size: 25px;
 }
 
-.fiche_article .btns:hover{
+.voir_panier .btns:hover {
     background-color: #ffffff;
     transform: scale(1.1);
     transition: 1.5s;
 }
 
-.fiche_article .btn-ajout-panier{
+/* .voir_panier .btn-ajout-panier {
     background-color: #7e1111;
     border-color: #7e1111;
 }
 
-.fiche_article .btn-ajout-panier:hover{
+.voir_panier .btn-ajout-panier:hover {
     color: #7e1111;
     }
 
-.fiche_article .btn-details{
+.voir_panier .btn-details {
     background-color: #000000;
     border-color: #000000;
 }
 
-.fiche_article .btn-details:hover{
+.voir_panier .btn-details:hover {
     color: #000000;
-    }
+    } */
 
-.fiche_article  .image_article{
-    width:25vw;
+.voir_panier .image_article {
+    width:10vw;
 }
