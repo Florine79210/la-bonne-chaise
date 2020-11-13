@@ -1,12 +1,11 @@
 <?php
 
-
         // LISTE DES ARTICLES
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function getArticles() {
 
-    return $liste = [
+    return [
         "article 1" => ["id" => "1", "name" => "Füt'Hürr", "picture" => "chaise-fut-hurr.jpg", "description" => "Moulée dans un seul bloc de polypropylène, la chaise design Füt'Hürr donnera un aspect résolument moderne et futuriste à votre décoration intérieure.",
                         "descriptionDetaillee" => "Ses courbes associées font de la chaise Füt'Hürr un modèle du genre. La forme ergonomique de son siège vous offre un excellent confort d'assise. Si vous souhaitez meubler un intérieur moderne ou design,
                         cette chaise est faite pour vous !<br>Petit plus, légère et empilable, elle peut également être utilisée sur votre terrasse ou dans votre jardin.",
@@ -35,55 +34,52 @@ function showArticles($listeArticles){
 
     foreach ($listeArticles as $article){
 
-        echo "<div class=\"container mt-5 mb-5 p-5 fiche_article\">";
-            echo "<div class=\"row\">";
+        echo "<div class=\"container mt-5 mb-5 p-5 fiche_article\">
+                <div class=\"row\">
 
-                echo "<div class=\"col-md-6 pl-5\">";
-
-                    echo "<div class=\"row\">";
-                        echo "<div class=\"col-md-12 mb-5 text-center\">";
-                            echo "<h2>" .  $article["name"] . "<h2>\n";
-                        echo "</div>";
-                    echo "</div>";
+                    <div class=\"col-md-6 pl-5\">
+                        <div class=\"row\">
+                            <div class=\"col-md-12 mb-5 text-center\">
+                                <h2>" .  $article["name"] . "<h2>\n
+                            </div>
+                        </div>
                         
-                    echo "<div class=\"row\">";
-                        echo "<div class=\"col-md-12 mb-5\">";    
-                            echo "<p>" . $article["description"] . "<p>\n";
-                        echo "</div>";
-                    echo "</div>";                
+                        <div class=\"row\">
+                            <div class=\"col-md-12 mb-5\">  
+                                <p>" . $article["description"] . "<p>\n
+                            </div>
+                        </div>            
                     
-                    echo "<div class=\"row\">";
-                        echo "<div class=\"col-md-12 mb-5\">";        
-                            echo "<p>Prix unitaire : <span>" . $article["price"] . " €</span><p>\n";
-                        echo "</div>";
-                    echo "</div>";        
+                        <div class=\"row\">
+                            <div class=\"col-md-12 mb-5\">      
+                                <p>Prix unitaire : <span>" . $article["price"] . " €</span><p>\n
+                            </div>
+                        </div>    
 
-                    echo "<div class=\"row\">";
+                        <div class=\"row\">
+                            <div class=\"col-lg-6\">
+                                <form action=\"index.php\" method=\"post\">        
+                                    <input type=\"hidden\" name= \"idEnvoiAjoutPanier\" value=\"" . $article["id"] . "\">
+                                    <input class=\"mt-3 pt-2 pr-3 pb-2 pl-3 btns btn-ajout-panier\"type=\"submit\" name=\"ajoutPanier\" value=\"Ajouter au panier\">
+                                </form>
+                            </div>
 
-                        echo "<div class=\"col-md-6\">";
-                        echo "<form action=\"index.php\" method=\"post\">";         
-                            echo "<input type=\"hidden\" name= \"idEnvoiAjoutPanier\" value=\"" . $article["id"] . "\">";
-                            echo "<input class=\"mt-3 pt-2 pr-3 pb-2 pl-3 btns btn-ajout-panier\"type=\"submit\" name=\"ajoutPanier\" value=\"Ajouter au panier\">";
-                        echo "</form>";
-                        echo "</div>";
+                            <div class=\"col-lg-6\">
+                                <form action=\"produit.php\" method=\"post\">       
+                                    <input type=\"hidden\" name= \"idDetailsproduit\" value=\"" . $article["id"] . "\">
+                                    <input class=\"mt-3 pt-2 pr-3 pb-2 pl-3 btns btn-details\" type=\"submit\" name=\"detailsProduit\" value=\"Détails du produit\">
+                                </form>
+                            </div>
+                        </div>
 
-                        echo "<div class=\"col-md-6\">";
-                        echo "<form action=\"produit.php\" method=\"post\">";         
-                            echo "<input type=\"hidden\" name= \"idDetailsproduit\" value=\"" . $article["id"] . "\">";
-                            echo "<input class=\"mt-3 pt-2 pr-3 pb-2 pl-3 btns btn-details\" type=\"submit\" name=\"detailsProduit\" value=\"Détails du produit\">";
-                        echo "</form>";
-                        echo "</div>";
+                    </div>  
 
-                    echo "</div>";
-
-                echo "</div>";  
-
-                echo "<div class=\"col-md-6 text-center\">";
-                    echo "<img class=\"image_article\" src=\"images/" . $article["picture"] . "\">";
-                echo "</div>"; 
+                    <div class=\"col-md-6 text-center\">
+                        <img class=\"image_article\" src=\"images/" . $article["picture"] . "\">
+                    </div>
                 
-            echo "</div>"; 
-        echo "</div>";  
+                </div>
+            </div>";  
     }                
 }
 
@@ -93,49 +89,40 @@ function showArticles($listeArticles){
 
 function showArticleDetails($article){
 
-        echo "<div class=\"container mt-5 mb-5 p-5 details_article\">";
+        echo "<div class=\"container mt-5 mb-5 p-5 details_article\">
+                <div class=\"row\">
 
-            echo "<div class=\"row\">";
-
-                echo "<div class=\"col-md-6 pl-5\">";
-
-                    echo "<div class=\"row\">";
-                        echo "<div class=\"col-md-12 mb-3\">";
-                            echo "<h2>" .  $article["name"] . "<h2>\n";
-                        echo "</div>";
-                    echo "</div>";
+                    <div class=\"col-md-6 pl-5\">
+                        <div class=\"row mb-3\">
+                            <h2>" .  $article["name"] . "<h2>\n
+                        </div>
                         
-                    echo "<div class=\"row\">";
-                        echo "<div class=\"col-md-12 mb-3\">";    
-                            echo "<p>" . $article["description"] . "<p>\n";
-                            echo "<p>" . $article["descriptionDetaillee"] . "<p>\n";
-                        echo "</div>";
-                    echo "</div>";                       
+                        <div class=\"row mb-3\">
+                            <p>" . $article["description"] . "<p>\n
+                            <p>" . $article["descriptionDetaillee"] . "<p>\n
+                        </div>                     
+                    </div>
 
-                echo "</div>";  
-
-                echo "<div class=\"col-md-6\">";
-                    echo "<img class=\" mt-4 pt-4 image_article\" src=\"images/" . $article["picture"] . "\">";
-                echo "</div>"; 
+                    <div class=\"col-md-6\">
+                        <img class=\" mt-4 pt-4 image_article\" src=\"images/" . $article["picture"] . "\">
+                    </div> 
                 
-            echo "</div>"; 
+                </div>
 
-            echo "<div class=\"row\">";
+                <div class=\"row\">
+                    <div class=\"col-md-6  d-flex justify-content-center\">
+                        <form action=\"index.php\" method=\"post\">        
+                            <input type=\"hidden\" name= \"idEnvoiAjoutPanier\" value=\"" . $article["id"] . "\">
+                            <input class=\"mt-3 pt-2 pb-2 text-center btn btns btn-ajout-panier\" type=\"submit\" name=\"ajoutPanier\" value=\"Ajouter au panier\">
+                        </form>
+                    </div>
 
-                echo "<div class=\"col-md-6  d-flex justify-content-center\">";
-                    echo "<form action=\"index.php\" method=\"post\">";         
-                        echo "<input type=\"hidden\" name= \"idEnvoiAjoutPanier\" value=\"" . $article["id"] . "\">";
-                        echo "<input class=\"mt-3 pt-2 pb-2 text-center btns btn-ajout-panier type=\"submit\" name=\"ajoutPanier\" value=\"Ajouter au panier\">";
-                    echo "</form>";
-                echo "</div>";
+                    <div class=\"col-md-6 mt-4 d-flex justify-content-center\">        
+                        <p>Prix unitaire : <span>" . $article["price"] . " €</span><p>\n
+                    </div>
+                </div>
 
-                echo "<div class=\"col-md-6 mt-4 d-flex justify-content-center\">";        
-                    echo "<p>Prix unitaire : <span>" . $article["price"] . " €</span><p>\n";
-                echo "</div>";
-
-            echo "</div>";
-
-        echo "</div>";                 
+            </div>";                 
 }
 
 
@@ -179,44 +166,38 @@ function showPanier($nomDePage){
 
     foreach ($_SESSION["panier"] as $article){
 
-        echo "<div class=\"container mt-5 mb-5 pt-3 pb-3 voir_panier\">";
-            echo "<div class=\"row align-items-center\">";
+        echo "<div class=\"container mt-5 mb-5 pt-3 pb-3 voir_panier\">
+                <div class=\"row align-items-center\">
                 
-                echo "<div class=\"col-md-4 text-center\">";
-                    
-                    echo "<h2 class=\"mb-3\">" .  $article['name'] . "<h2>\n";
-                    echo "<img class=\"image_article\" src=\"images/" . $article['picture'] . "\">";
-
-                echo "</div>";
+                    <div class=\"col-md-4 text-center\">
+                        <h2 class=\"mb-3\">" .  $article['name'] . "<h2>\n
+                        <img class=\"image_article\" src=\"images/" . $article['picture'] . "\">
+                    </div>
                              
-                echo "<div class=\"col-md-4\">";
-
-                    echo "<div class=\"row mb-4 justify-content-center\">";       
-                            echo "<p>Prix unitaire : <span>" . $article["price"] . " €</span><p>\n"; 
-                    echo "</div>";
-
+                    <div class=\"col-md-4\">
+                        <div class=\"row mb-4 justify-content-center\">      
+                            <p>Prix unitaire : <span>" . $article["price"] . " €</span><p>\n 
+                        </div>
                     
-                    
-                    echo "<div class=\"row justify-content-center\">";
-                        echo "<form class=\"form-row\" action=\"".$nomDePage."\" method=\"post\">";
-                                echo "<p class=\"mt-2 mr-2\" >Quantité :<p>";
-                                echo "<input type=\"hidden\" name=\"idModifierQuantite\" value=\"" .$article['id']. "\">"; 
-                                echo "<input class=\"mr-3 btn-saisie-nbr\" type=\"number\" name=\"nouvelleQuantite\" min=\"1\" max=\"12\" value=\"" .$article['quantite']. "\">";   
-                                echo "<button class=\" pt-2 pr-3 pb-2 pl-3 btns btn_modif\" type=\"submit\"> Modifier </button>";
-                        echo "</form>";    
-                    echo "</div>";
+                        <div class=\"row justify-content-center\">
+                            <form class=\"form-row\" action=\"".$nomDePage."\" method=\"post\">
+                                <p class=\"mt-2 mr-2\" >Quantité :<p>
+                                <input type=\"hidden\" name=\"idModifierQuantite\" value=\"" .$article['id']. "\">
+                                <input class=\"mr-3 btn-saisie-nbr\" type=\"number\" name=\"nouvelleQuantite\" min=\"1\" max=\"12\" value=\"" .$article['quantite']. "\"> 
+                                <button class=\" pt-2 pr-3 pb-2 pl-3 btns btn_modif\" type=\"submit\"> Modifier </button>
+                            </form>   
+                        </div>
+                    </div>
 
-                echo "</div>";
-
-                echo "<div class=\"col-md-4 text-center\">";
-                    echo "<form action=\"".$nomDePage."\" method=\"post\">";
-                        echo "<input type=\"hidden\" name=\"idSupprimerArticle\" value=\"" .$article['id']. "\">";  
-                        echo "<button class=\" pt-2 pr-3 pb-2 pl-3 btns btn_suppr\" type=\"submit\"> Supprimer l'article </button>"; 
-                    echo "</form>";
-                echo "</div>"; 
+                    <div class=\"col-md-4 text-center\">
+                        <form action=\"".$nomDePage."\" method=\"post\">
+                            <input type=\"hidden\" name=\"idSupprimerArticle\" value=\"" .$article['id']. "\"> 
+                            <button class=\" pt-2 pr-3 pb-2 pl-3 btns btn_suppr\" type=\"submit\"> Supprimer l'article </button>
+                        </form>
+                    </div>
                     
-            echo "</div>"; 
-        echo "</div>";  
+                </div>
+            </div>";  
     }
 }
 
@@ -244,12 +225,11 @@ function modifierQuantite(){
 
             if ($_SESSION['panier'][$i]['id'] == $_POST["idSupprimerArticle"]){
                 array_splice($_SESSION['panier'], $i, 1);
-                
                 echo "<script> alert(\"Article retiré du panier\");</script>";
             } 
 
             if (empty ($_SESSION['panier'])){
-                echo "Le panier est vide.";
+                echo "<p class=\"text-center message-panier-vide\">Le panier est <span>vide</span>.</p>";
             }
         }
  }
@@ -261,24 +241,24 @@ function afficherBoutons(){
 
         if (!empty($_SESSION["panier"])){
 
-            echo "<div class=\"container mt-5 mb-5 valider_vider\">";
-                echo "<div class=\"row\">";
+            echo "<div class=\"container mt-5 mb-5 valider_vider\">
+                    <div class=\"row\">
 
-                    echo "<div class=\"col-md-6 text-center\">";
-                        echo "<a href=\"validation.php\">";
-                            echo "<button class=\"pt-2 pr-3 pb-2 pl-3 btns btn_valider\"> Valider le panier </button>"; 
-                        echo "</a>";   
-                    echo "</div>";
+                        <div class=\"col-md-6 text-center\">
+                            <a href=\"validation.php\">
+                                <button class=\"pt-2 pr-3 pb-2 pl-3 btns btn_valider\"> Valider le panier </button>
+                            </a>  
+                        </div>
 
-                    echo "<div class=\"col-md-6 text-center\">";
-                        echo "<form action=\"index.php\" method=\"post\">";
-                            echo "<input type=\"hidden\" name=\"viderPanier\" value=\"true\">";
-                            echo "<button  class=\"pt-2 pr-3 pb-2 pl-3 btns btn_vider\"type=\"submit\"> Vider le panier </button>";    
-                        echo "</form>";
-                    echo "</div>";
+                        <div class=\"col-md-6 text-center\">
+                            <form action=\"index.php\" method=\"post\">
+                                <input type=\"hidden\" name=\"viderPanier\" value=\"true\">
+                                <button  class=\"pt-2 pr-3 pb-2 pl-3 btns btn_vider\"type=\"submit\"> Vider le panier </button>   
+                            </form>
+                        </div>
 
-                echo "</div>";
-            echo "</div>";  
+                    </div>
+                </div>";  
         }
 }
 
@@ -288,22 +268,7 @@ function afficherBoutons(){
 function viderPanier(){
 
         $_SESSION['panier'] = array();
-       
         echo "<script> alert(\"Le panier est vide.\");</script>";   
-
-}
-
-
-// <-----Annuler & Valider la commande ---------------->
-
-function annulerLaCommande(){
-
-    $_SESSION['panier'] = array();  
-}
-
-function validerLaCommande(){
-
-    $_SESSION['panier'] = array();
 }
 
 
@@ -319,24 +284,26 @@ function nbrArticlesPanier(){
     return $nbrArticlesPanier;
 }
 
-function totalArticles(){
 
-    $totalArticles = 0;
+function totalPrixArticles(){
+
+    $totalPrixArticles = 0;
 
     for ($i = 0; $i < count($_SESSION['panier']); $i++){
-        $totalArticles += $_SESSION['panier'][$i]['price'] * intval($_SESSION['panier'][$i]['quantite']);
+        $totalPrixArticles += $_SESSION['panier'][$i]['price'] * intval($_SESSION['panier'][$i]['quantite']);
     }
-    return $totalArticles;
+    return $totalPrixArticles;
 }
 
-function affichageTotalArticles(){
-    $totalArticles = totalArticles();
+function affichageTotalPrixArticles(){
+    $totalPrixArticles = totalPrixArticles();
 
     if ($_SESSION['panier']) {
-        $totalArticles = number_format($totalArticles, 2, ',', ' ');
-        echo "<p class=\"text-center totals total_articles\">Total des achats : <span>" . $totalArticles . " €</span></p>";
+        $totalPrixArticles = number_format($totalPrixArticles, 2, ',', ' ');
+        echo "<p class=\"text-center totals total_articles\">Total des achats : <span>" . $totalPrixArticles . " €</span></p>";
     }
 }
+
 
 function totalFraisPort(){
     $totalFraisPort = 0;
@@ -356,12 +323,13 @@ function affichageTotalFraisPort(){
     }
 }
 
+
 function totalARegler(){
     
-    $totalArticles = totalArticles();
+    $totalPrixArticles = totalPrixArticles();
     $totalFraisPort = totalFraisPort();
 
-    return $totalArticles + $totalFraisPort;
+    return $totalPrixArticles + $totalFraisPort;
 }
 
 function affichageTotalARegler(){

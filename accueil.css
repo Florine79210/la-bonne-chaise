@@ -1,4 +1,25 @@
-    /* ARTICLES */
+    /* PRESENTATION */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.presentation h2 {
+    color: #000000;
+    font-family: 'Lora', Garamond, Arial;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.presentation p {
+    color: #000000;
+    font-family: 'Lora', Garamond, Arial;
+    font-size: 25px;
+}
+
+.presentation p span {
+    font-weight: bold;
+}
+
+
+/* ARTICLES */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 .fiche_article{
@@ -58,4 +79,16 @@
 
 .fiche_article  .image_article{
     width:25vw;
+}
+
+
+  /* ======================================================================
+MEDIA QUERIES
+====================================================================== */
+
+@media screen and (max-width: 1200px) {
+
+    .fiche_article .btns{
+        font-size: 20px;
+    }
 }

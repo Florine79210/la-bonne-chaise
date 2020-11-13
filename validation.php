@@ -1,25 +1,19 @@
 <?php
 
-session_start();
-include('functions.php');
+    session_start();
+    include('functions.php');
 
-if (isset ($_POST['idModifierQuantite'])){
-    modifierQuantite();
-}
+    if (isset ($_POST['idModifierQuantite'])){
+        modifierQuantite();
+    }
 
-if (isset ($_POST['idSupprimerArticle'])){
-    supprArticle();
+    if (isset ($_POST['idSupprimerArticle'])){
+        supprArticle();
+    }
 
-// var_dump ($_POST['idSupprimerArticle']);
-}
-
-if (isset ($_POST["annulerCommande"])){
-    annulerLaCommande();
-}
-
-
-
-// var_dump ($_SESSION["panier"]);
+    if (isset ($_POST["annulerCommande"])){
+        $_SESSION['panier'] = array();
+    }
 
 ?>
 
@@ -34,35 +28,30 @@ if (isset ($_POST["annulerCommande"])){
             <title>La Bonne Chaise</title>
 
             <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
             <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet"> 
 
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
             <link rel="stylesheet" href="validation.css">
             <link rel="stylesheet" href="style.css">
         
-        
-
         </head>
 
         <body>
 
             <header>
 
-                <?php
-                    include("navbar.php");
-                ?>
+                <?php include("navbar.php"); ?>
 
             </header>
 
             <main>
 
                 <?php
-                
                     showPanier("validation.php");
-                    affichageTotalArticles();
+                    affichageTotalPrixArticles();
                     affichageTotalFraisPort();
                     affichageTotalARegler();
-
                 ?>
 
                 <div class="container mt-5 mb-5 valider_vider_panier">
@@ -83,26 +72,19 @@ if (isset ($_POST["annulerCommande"])){
 
                                         <div class="mt-3 modal-header-center">
                                             <h5 class="modal-title">Félicitation !</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
                                         </div>
 
                                         <div class="modal-body text-center">
                                             <p>La commande à été <span>validée</span>.</p>
                                             <br>
-                                            <?php
-                                                echo "<p>Votre commande sera expédié <br> le <span>". date('d-m-Y', strtotime(date('d-m-Y') . ' + 3 days')). "</span></p>"
-                                            ?>
+                                            <?php echo "<p>Votre commande sera expédié <br> le <span>". date('d-m-Y', strtotime(date('d-m-Y') . ' + 3 days')). "</span></p>"?>
                                         </div>
 
                                         <div class="modal-footer d-flex justify-content-center">
-
                                             <form action="index.php" method="post">
                                                 <input type="hidden" name="validerCommande">
                                                 <button type="submit" class="btn btns btn-valider-accueil">Revenir à l'Accueil</button>
                                             </form>
-
                                         </div>
                                     </div>
                                 </div>
@@ -126,9 +108,6 @@ if (isset ($_POST["annulerCommande"])){
 
                                         <div class="mt-3 modal-header-center">
                                             <h5 class="modal-title"> ! Attention !</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
                                         </div>
 
                                         <div class="modal-body-center">
@@ -158,6 +137,12 @@ if (isset ($_POST["annulerCommande"])){
                 </div>
 
             </main>
+
+            <footer>
+
+                <?php include("footer.php"); ?>
+
+            </footer>
         
         </body>
 

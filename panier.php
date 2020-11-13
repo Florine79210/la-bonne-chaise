@@ -1,29 +1,23 @@
 <?php
 
-session_start();
-include('functions.php');
+    session_start();
+    include('functions.php');
 
-if (empty ($_SESSION['panier'])){
-    echo "Le panier est vide.";
-}
+    if (empty ($_SESSION['panier'])){
+        echo "<p class=\"text-center message-panier-vide\">Le panier est <span>vide</span>.</p>";
+    }
 
-if (isset ($_POST['idModifierQuantite'])){
-    modifierQuantite();
-}
+    if (isset ($_POST['idModifierQuantite'])){
+        modifierQuantite();
+    }
 
-if (isset ($_POST['idSupprimerArticle'])){
-    supprArticle();
+    if (isset ($_POST['idSupprimerArticle'])){
+        supprArticle();
+    }
 
-// var_dump ($_POST['idSupprimerArticle']);
-}
-
-if (isset ($_POST["viderPanier"])){
-    viderPanier();
-}
-
-// var_dump ($_SESSION["panier"]);
-
-
+    if (isset ($_POST["viderPanier"])){
+        viderPanier();
+    }
 
 ?>
 
@@ -38,13 +32,12 @@ if (isset ($_POST["viderPanier"])){
             <title>La Bonne Chaise</title>
 
             <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
             <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet"> 
 
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
             <link rel="stylesheet" href="panier.css">
             <link rel="stylesheet" href="style.css">
-        
-        
 
         </head>
 
@@ -52,25 +45,25 @@ if (isset ($_POST["viderPanier"])){
 
             <header>
 
-                <?php
-                    include("navbar.php");
-                ?>
+                <?php include("navbar.php"); ?>
 
             </header>
 
             <main>
 
                 <?php
-
                     showPanier("panier.php");
-                    affichageTotalArticles();
+                    affichageTotalPrixArticles();
                     afficherBoutons();
-                    
                 ?>
 
-
-
             </main>
+
+            <footer>
+
+                <?php include("footer.php"); ?>
+
+            </footer>
         
         </body>
 
@@ -79,5 +72,4 @@ if (isset ($_POST["viderPanier"])){
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
- 
  </html>

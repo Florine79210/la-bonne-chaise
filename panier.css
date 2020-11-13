@@ -1,4 +1,17 @@
-    /* ARTICLE */
+/* MESSAGE PANIER VIDE */
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.message-panier-vide {
+    color: 000000;
+    font-family: 'Source Sans Pro', Garamond, Arial;
+    font-size: 50px;
+}
+
+.message-panier-vide span{
+    font-weight: bold;
+}
+
+/* ARTICLE */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 .voir_panier {

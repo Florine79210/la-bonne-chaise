@@ -4,7 +4,7 @@ html,body
     height: 100%;
     margin: 0px;
     padding: 0px;
-    margin-top: 15vh;
+    margin-top: 12vh;
 }
 
 /* NAVBAR */
@@ -12,7 +12,7 @@ html,body
 
 .navbar {
     background-color: #978562;
-    height: 20vh;
+    min-height: 20vh;
 }
 
 nav h1 {
@@ -26,16 +26,31 @@ nav h1 {
     color: #000000;
     font-family: 'Lora', Garamond, Arial;
     font-size: 40px;
+    font-weight: bold;
+}
+
+.navbar-nav a i{
+  color: #000000;
+  font-size: 40px;
+}
+
+.navbar-nav a:hover {
+  transform: scale(1.2);
+  transition: 1.5s;
 }
 
 .navbar-nav a .quantite-panier {
   font-size: 30px;
   font-style: italic;
+  font-weight: initial;
 }
 
-.navbar-nav a:hover {
-    transform: scale(1.2);
-    transition: 1.5s;
+.navbar-nav .reseaux a i{
+  color: #ffffff;
+}
+
+.navbar-nav .reseaux a i:hover {
+  color: #000000;
 }
 
 #hamburger {
@@ -50,14 +65,83 @@ nav h1 {
   }
   
   nav i {
-    color: #1c996d;
+    color: #978562;
   }
   
   .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
   }
 
-  /*  */
+  /* FOOTER */
   /* <------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------> */
 
+  .footer {
+    background-color: #978562;
+  }
+
+  .footer h3 {
+    font-family: 'Lora', Garamond, Arial;
+    font-weight: bold;
+    color: #000000;
+    font-size: 20px;
+  }
+
+  .footer p{
+    font-family: 'Source Sans Pro', Garamond, Arial;
+    font-size: 20px;
+    color: #000000;
+  }
+
+  .footer .reseaux a i {
+    color: #ffffff;
+    font-size: 55px;
+  }
+
+  .footer .reseaux a i:hover {
+    transform: scale(1.2);
+    transition: 1.5s;
+    color: #000000;
+  }
+
+  .footer .contact  i {
+    color: #000000;
+  }
+
+  .footer p span {
+    font-family: 'Lora', Garamond, Arial;
+    font-weight: bold;
+  }
+
+
+  /* ======================================================================
+MEDIA QUERIES
+====================================================================== */
+
+@media screen and (max-width: 1200px) {
+
+  nav h1 {
+    font-size: 45px;
+  }
+
+  .navbar-nav a {
+    font-size: 35px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+
+  /* .navbar-nav {
+    display:flex;
+    justify-content: center;
+  } */
+
+  .navbar-nav .reseaux a i{
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}
+
+/* @media screen and (max-width: 576px) {
+
+} */
   
