@@ -78,17 +78,10 @@
     }
 
 .fiche_article  .image_article{
-    width:25vw;
+    min-width:20vw;
 }
 
 
   /* ======================================================================
 MEDIA QUERIES
 ====================================================================== */
-
-@media screen and (max-width: 1200px) {
-
-    .fiche_article .btns{
-        font-size: 20px;
-    }
-}

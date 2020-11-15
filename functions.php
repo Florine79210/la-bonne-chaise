@@ -35,50 +35,47 @@ function showArticles($listeArticles){
     foreach ($listeArticles as $article){
 
         echo "<div class=\"container mt-5 mb-5 p-5 fiche_article\">
+
                 <div class=\"row\">
 
                     <div class=\"col-md-6 pl-5\">
-                        <div class=\"row\">
-                            <div class=\"col-md-12 mb-5 text-center\">
-                                <h2>" .  $article["name"] . "<h2>\n
-                            </div>
+                        <div class=\"row mb-5 pt-3 text-center\">
+                            <h2>" .  $article["name"] . "<h2>\n
                         </div>
                         
-                        <div class=\"row\">
-                            <div class=\"col-md-12 mb-5\">  
-                                <p>" . $article["description"] . "<p>\n
-                            </div>
+                        <div class=\"row pr-5\"> 
+                            <p>" . $article["description"] . "<p>\n
                         </div>            
-                    
-                        <div class=\"row\">
-                            <div class=\"col-md-12 mb-5\">      
-                                <p>Prix unitaire : <span>" . $article["price"] . " €</span><p>\n
-                            </div>
-                        </div>    
-
-                        <div class=\"row\">
-                            <div class=\"col-lg-6\">
-                                <form action=\"index.php\" method=\"post\">        
-                                    <input type=\"hidden\" name= \"idEnvoiAjoutPanier\" value=\"" . $article["id"] . "\">
-                                    <input class=\"mt-3 pt-2 pr-3 pb-2 pl-3 btns btn-ajout-panier\"type=\"submit\" name=\"ajoutPanier\" value=\"Ajouter au panier\">
-                                </form>
-                            </div>
-
-                            <div class=\"col-lg-6\">
-                                <form action=\"produit.php\" method=\"post\">       
-                                    <input type=\"hidden\" name= \"idDetailsproduit\" value=\"" . $article["id"] . "\">
-                                    <input class=\"mt-3 pt-2 pr-3 pb-2 pl-3 btns btn-details\" type=\"submit\" name=\"detailsProduit\" value=\"Détails du produit\">
-                                </form>
-                            </div>
-                        </div>
-
                     </div>  
 
-                    <div class=\"col-md-6 text-center\">
-                        <img class=\"image_article\" src=\"images/" . $article["picture"] . "\">
+                    <div class=\"col-md-6\">
+                        <div class=\"row justify-content-center\">
+                            <img class=\"image_article\" src=\"images/" . $article["picture"] . "\">
+                        </div>
+
+                        <div class=\"row mb-3 justify-content-center\">
+                            <p>Prix unitaire : <span>" . $article["price"] . " €</span><p>\n
+                        </div>
                     </div>
-                
                 </div>
+
+                <div class=\"row\">
+                    <div class=\"col-md-6 text-center\">
+                        <form action=\"index.php\" method=\"post\">        
+                            <input type=\"hidden\" name= \"idEnvoiAjoutPanier\" value=\"" . $article["id"] . "\">
+                            <input class=\"mt-3 pt-2 pr-3 pb-2 pl-3 btns btn-ajout-panier\"type=\"submit\" name=\"ajoutPanier\" value=\"Ajouter au panier\">
+                        </form>
+                    </div>
+
+                    <div class=\"col-md-6 text-center\">
+                        <form action=\"produit.php\" method=\"post\">       
+                        <input type=\"hidden\" name= \"idDetailsproduit\" value=\"" . $article["id"] . "\">
+                        <input class=\"mt-3 pt-2 pr-3 pb-2 pl-3 btns btn-details\" type=\"submit\" name=\"detailsProduit\" value=\"Détails du produit\">
+                        </form>
+                    </div>
+                </div>    
+
+
             </div>";  
     }                
 }
@@ -104,21 +101,22 @@ function showArticleDetails($article){
                     </div>
 
                     <div class=\"col-md-6\">
-                        <img class=\" mt-4 pt-4 image_article\" src=\"images/" . $article["picture"] . "\">
+                        <div class=\"row mt-4 justify-content-center\">
+                            <img class=\" mt-4 pt-4 image_article\" src=\"images/" . $article["picture"] . "\">
+                        </div> 
+                        
+                        <div class=\"row mt-4 justify-content-center\">       
+                            <p>Prix unitaire : <span>" . $article["price"] . " €</span><p>\n
+                        </div> 
                     </div> 
                 
                 </div>
 
-                <div class=\"row\">
-                    <div class=\"col-md-6  d-flex justify-content-center\">
+                <div class=\"row justify-content-center\">
                         <form action=\"index.php\" method=\"post\">        
                             <input type=\"hidden\" name= \"idEnvoiAjoutPanier\" value=\"" . $article["id"] . "\">
                             <input class=\"mt-3 pt-2 pb-2 text-center btn btns btn-ajout-panier\" type=\"submit\" name=\"ajoutPanier\" value=\"Ajouter au panier\">
                         </form>
-                    </div>
-
-                    <div class=\"col-md-6 mt-4 d-flex justify-content-center\">        
-                        <p>Prix unitaire : <span>" . $article["price"] . " €</span><p>\n
                     </div>
                 </div>
 

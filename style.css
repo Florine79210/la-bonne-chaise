@@ -117,7 +117,7 @@ nav h1 {
 MEDIA QUERIES
 ====================================================================== */
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1199px) {
 
   nav h1 {
     font-size: 45px;
@@ -128,7 +128,7 @@ MEDIA QUERIES
   }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 991px) {
 
   /* .navbar-nav {
     display:flex;
@@ -138,6 +138,17 @@ MEDIA QUERIES
   .navbar-nav .reseaux a i{
     padding-right: 5px;
     padding-left: 5px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .footer .contact {
+    margin-bottom: 15px;
+  }
+
+  .footer .reseaux {
+    margin-bottom: 15px;
   }
 }
 

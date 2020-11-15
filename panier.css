@@ -75,7 +75,7 @@
 }
 
 .voir_panier .image_article {
-    width:8vw;
+    min-width:8vw;
 }
 
 
@@ -128,3 +128,21 @@
     color: #ffffff;
     background-color: #7e1111;
 }
+
+  /* ======================================================================
+MEDIA QUERIES
+====================================================================== */
+
+/* @media screen and (max-width: 1199px) {
+
+    .voir_panier .image_article {
+        min-width:12vw;
+    }
+}
+
+@media screen and (max-width: 991px) {
+
+    .voir_panier .image_article {
+        min-width:50vw;
+    }
+} */

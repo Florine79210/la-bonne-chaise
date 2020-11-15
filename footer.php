@@ -1,14 +1,14 @@
     <div class="container-fluid footer">
 
         <div class="row justify-content-center">
-            <div class="col-md-6 mt-3 pr-5 text-center reseaux">
+            <div class="col-md-6 mt-3 pr-5 pl-5 text-center reseaux">
                 <h3>Retrouvez-nous sur :</h3>
                 <a href="https://www.facebook.fr"><i class="fab fa-facebook-square"></i></a>
                 <a href="https://www.instagram.fr"><i class="fab fa-instagram mr-2 ml-2"></i></a>
                 <a href="https://www.twitter.fr"><i class="fab fa-twitter-square"></i></a>
             </div>
 
-            <div class="col-md-6 mt-3 pl-5 text-center contact">
+            <div class="col-md-6 mt-3 pr-5 pl-5 text-center contact">
                 <h3>La Bonne Chaise</h3>
                 <p>4 route des Bien-Assis<br>
                 85 310 La Chaize-le-Vicomte</p>
