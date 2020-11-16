@@ -10,12 +10,12 @@ function getArticles() {
                         "descriptionDetaillee" => "Ses courbes associées font de la chaise Füt'Hürr un modèle du genre. La forme ergonomique de son siège vous offre un excellent confort d'assise. Si vous souhaitez meubler un intérieur moderne ou design,
                         cette chaise est faite pour vous !<br>Petit plus, légère et empilable, elle peut également être utilisée sur votre terrasse ou dans votre jardin.",
                         "price" => 149.99],
-        "article 2" => ["id" => "2", "name" => "Rusticae", "picture" => "chaise-rusticae.jpg", "description" => "La chaise Rusticae est une création française de qualité. Elle possède un look hors du temps, très nature et élégant qui s'accorde parfaitement avec tous les styles d'interieur.",
-                        "descriptionDetaillee" => "Cette chaise française se distingue par sa robustesse. Elle possède un dossier et une assise en lin ainsi qu'une épaisse structure en bois flotté qui se veut rassurente et rustique. 
+        "article 2" => ["id" => "2", "name" => "Rusticae", "picture" => "chaise-rusticae.jpg", "description" => "La chaise Rusticae est une création française de qualité. Elle possède un look hors du temps, très nature et élégant qui s'accorde parfaitement avec tous les styles d'intérieur.",
+                        "descriptionDetaillee" => "Cette chaise française se distingue par sa robustesse. Elle possède un dossier et une assise en lin ainsi qu'une épaisse structure en bois flotté qui se veut rassurante et rustique. 
                         Cette chaise est idéale pour apporter une authenticité accrue à votre déco.",
                         "price" => 249.99],
         "article 3" => ["id" => "3", "name" => "Wave", "picture" => "chaise-wave.jpg", "description" => "Chaleureuse, séduisante et tendance,<br>la chaise en tissu Wave est un fructueux<br>mélange entre modernité et confort.",
-                        "descriptionDetaillee" => "Envie de douceur dans votre intérieur ?<br>Ne cherchez pas plus longtemps, la chaise Wave sera votre meuble idéal ! Un dossier haut avec une base entourante pour un maintien optimal, 
+                        "descriptionDetaillee" => "Envie de douceur dans votre intérieur ?<br>Ne cherchez pas plus longtemps, la chaise Wave sera votre meuble idéal ! Un dossier haut pour un maintien optimal, 
                         un tissu agréable et chaleureux ainsi qu'une assise rembourrée ... Tous les atouts sont là pour vous offrir un confort des plus délectables. Cette chaise confortable s'accommodera aisément dans les intérieurs
                         contemporains ou modernes et vous fera passer un bon moment de détente et de convivialité ! A noter que la housse est déhoussable afin de faciliter son entretien.",
                         "price" => 199.99],
@@ -33,6 +33,8 @@ function getArticles() {
 function showArticles($listeArticles){
 
     foreach ($listeArticles as $article){
+
+        $article["price"] = number_format($article["price"], 2, ',', ' ');
 
         echo "<div class=\"container mt-5 mb-5 p-5 fiche_article\">
 
@@ -85,6 +87,8 @@ function showArticles($listeArticles){
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function showArticleDetails($article){
+
+    $article["price"] = number_format($article["price"], 2, ',', ' ');
 
         echo "<div class=\"container mt-5 mb-5 p-5 details_article\">
                 <div class=\"row\">
@@ -163,6 +167,8 @@ function ajoutPanier($article){
 function showPanier($nomDePage){
 
     foreach ($_SESSION["panier"] as $article){
+
+        $article["price"] = number_format($article["price"], 2, ',', ' ');
 
         echo "<div class=\"container mt-5 mb-5 pt-3 pb-3 voir_panier\">
                 <div class=\"row align-items-center\">

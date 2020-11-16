@@ -62,7 +62,7 @@
 }
 
 .voir_panier .image_article {
-    width:8vw;
+    max-width: 8vw;
 }
 
 
