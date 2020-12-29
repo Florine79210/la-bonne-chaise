@@ -40,43 +40,43 @@ function showArticles($listeArticles){
 
                 <div class=\"row\">
 
-                    <div class=\"col-md-6 pl-5\">
+                    <div class=\"col-lg-6\">
                         <div class=\"row mb-5 pt-3 text-center\">
                             <h2>" .  $article["name"] . "<h2>\n
                         </div>
                         
                         <div class=\"row pr-5\"> 
                             <p>" . $article["description"] . "<p>\n
-                        </div>            
+                        </div>  
+                        
+                        <div class=\"row justify-content-center\">
+                            <form action=\"produit.php\" method=\"post\">       
+                                <input type=\"hidden\" name= \"idDetailsproduit\" value=\"" . $article["id"] . "\">
+                                <input class=\"pt-2 pr-3 pb-2 pl-3 btns btn-details\" type=\"submit\" name=\"detailsProduit\" value=\"Détails du produit\">
+                            </form>
+                        </div>
+                        
                     </div>  
 
-                    <div class=\"col-md-6\">
+                    <div class=\"col-lg-6\">
                         <div class=\"row justify-content-center\">
                             <img class=\"image_article\" src=\"images/" . $article["picture"] . "\">
                         </div>
 
-                        <div class=\"row mb-3 justify-content-center\">
+                        <div class=\"row justify-content-center\">
                             <p>Prix unitaire : <span>" . $article["price"] . " €</span><p>\n
                         </div>
                     </div>
                 </div>
 
                 <div class=\"row\">
-                    <div class=\"col-md-6 text-center\">
+                    <div class=\"col-lg-6 text-center\">
                         <form action=\"index.php\" method=\"post\">        
                             <input type=\"hidden\" name= \"idEnvoiAjoutPanier\" value=\"" . $article["id"] . "\">
-                            <input class=\"mt-3 pt-2 pr-3 pb-2 pl-3 btns btn-ajout-panier\"type=\"submit\" name=\"ajoutPanier\" value=\"Ajouter au panier\">
-                        </form>
-                    </div>
-
-                    <div class=\"col-md-6 text-center\">
-                        <form action=\"produit.php\" method=\"post\">       
-                        <input type=\"hidden\" name= \"idDetailsproduit\" value=\"" . $article["id"] . "\">
-                        <input class=\"mt-3 pt-2 pr-3 pb-2 pl-3 btns btn-details\" type=\"submit\" name=\"detailsProduit\" value=\"Détails du produit\">
+                            <input class=\"pt-2 pr-3 pb-2 pl-3 btns btn-ajout-panier\"type=\"submit\" name=\"ajoutPanier\" value=\"Ajouter au panier\">
                         </form>
                     </div>
                 </div>    
-
 
             </div>";  
     }                
@@ -93,20 +93,20 @@ function showArticleDetails($article){
         echo "<div class=\"container mt-5 mb-5 p-5 details_article\">
                 <div class=\"row\">
 
-                    <div class=\"col-md-6 pl-5\">
+                    <div class=\"col-lg-6 pl-5\">
                         <div class=\"row mb-3\">
                             <h2>" .  $article["name"] . "<h2>\n
                         </div>
                         
-                        <div class=\"row mb-3\">
+                        <div class=\"row\">
                             <p>" . $article["description"] . "<p>\n
                             <p>" . $article["descriptionDetaillee"] . "<p>\n
                         </div>                     
                     </div>
 
-                    <div class=\"col-md-6\">
-                        <div class=\"row mt-4 justify-content-center\">
-                            <img class=\" mt-4 pt-4 image_article\" src=\"images/" . $article["picture"] . "\">
+                    <div class=\"col-lg-6\">
+                        <div class=\"row justify-content-center\">
+                            <img class=\"pt-4 image_article\" src=\"images/" . $article["picture"] . "\">
                         </div> 
                         
                         <div class=\"row mt-4 justify-content-center\">       
@@ -173,12 +173,12 @@ function showPanier($nomDePage){
         echo "<div class=\"container mt-5 mb-5 pt-3 pb-3 voir_panier\">
                 <div class=\"row align-items-center\">
                 
-                    <div class=\"col-md-4 text-center\">
+                    <div class=\"col-lg-4 text-center\">
                         <h2 class=\"mb-3\">" .  $article['name'] . "<h2>\n
                         <img class=\"image_article\" src=\"images/" . $article['picture'] . "\">
                     </div>
                              
-                    <div class=\"col-md-4\">
+                    <div class=\"col-lg-4\">
                         <div class=\"row mb-4 justify-content-center\">      
                             <p>Prix unitaire : <span>" . $article["price"] . " €</span><p>\n 
                         </div>
@@ -193,7 +193,7 @@ function showPanier($nomDePage){
                         </div>
                     </div>
 
-                    <div class=\"col-md-4 text-center\">
+                    <div class=\"col-lg-4 text-center\">
                         <form action=\"".$nomDePage."\" method=\"post\">
                             <input type=\"hidden\" name=\"idSupprimerArticle\" value=\"" .$article['id']. "\"> 
                             <button class=\" pt-2 pr-3 pb-2 pl-3 btns btn_suppr\" type=\"submit\"> Supprimer l'article </button>

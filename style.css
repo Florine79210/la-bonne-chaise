@@ -43,6 +43,7 @@ nav h1 {
   font-size: 30px;
   font-style: italic;
   font-weight: initial;
+  margin-right: 60px;
 }
 
 .navbar-nav .reseaux a i{
@@ -65,11 +66,9 @@ nav h1 {
   }
   
   nav i {
-    color: #978562;
-  }
-  
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    color: #000000;
+    font-size: 25px;
+    margin-top: 3px;
   }
 
   /* FOOTER */
@@ -130,14 +129,13 @@ MEDIA QUERIES
 
 @media screen and (max-width: 991px) {
 
-  /* .navbar-nav {
-    display:flex;
-    justify-content: center;
-  } */
-
   .navbar-nav .reseaux a i{
     padding-right: 5px;
     padding-left: 5px;
+  }
+
+  .navbar-nav a .quantite-panier {
+    margin-right: 0px;
   }
 }
 
@@ -152,7 +150,35 @@ MEDIA QUERIES
   }
 }
 
-/* @media screen and (max-width: 576px) {
+@media screen and (max-width: 575px) {
 
-} */
+  nav h1 {
+    font-size: 35px;
+    margin-right: 10px;
+  }
+
+  .navbar-nav a {
+    font-size: 27px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+
+  .navbar-nav a i {
+    font-size: 30px;
+  }
+
+  .navbar-nav a .quantite-panier {
+    font-size: 20px;
+  }
+
+  .navbar-toggler-icon {
+    width: 20px;
+    height: 25px;
+  }
+
+  nav i {
+    font-size: 20px;
+    margin-top: 3px;
+  }
+}
   
