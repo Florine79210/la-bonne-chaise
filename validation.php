@@ -62,7 +62,7 @@
     <!-- BTN VALIDER LA COMMANDE -->
 <!-- ---------------------------------------------------------------------------------------------------------------------------------------- -->
 
-                            <button type="button" class="btn btns_V_A btn_valider" data-toggle="modal" data-target="#modalValidation">
+                            <button type="button" class="btn btns2 btns_V_A btn_valider" data-toggle="modal" data-target="#modalValidation">
                             Valider la commande
                             </button>
 

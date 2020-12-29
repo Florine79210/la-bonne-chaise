@@ -232,6 +232,7 @@ MEDIA QUERIES
 
     .valider_vider_panier .btns_V_A {
         font-size: 25px;
+    }
 }
 
 @media screen and (max-width: 575px) {
