@@ -1,4 +1,4 @@
-               <!-- NAVBAR -->
+<!-- NAVBAR -->
 <!-- =========================================================================================================================================================================================================== -->
 
 <nav class="navbar navbar-expand-lg fixed-top d-flex">
@@ -11,17 +11,18 @@
 
     <div class="collapse navbar-collapse text-center" id="navbarNavAltMarkup">
         <div class="navbar-nav mr-4 ml-auto">
+
             <div class="row justify-content-center">
                 <a class="nav-link mr-2 ml-2" href="index.php"><span>Acceuil</span></a>
                 <a class="nav-link mr-2 ml-2" href="panier.php"><i class="fas fa-shopping-basket"></i><span class="quantite-panier"> (<?php echo nbrArticlesPanier(); ?>)</span></a>
             </div>
+
             <div class="row mt-1 mr-3 ml-3 justify-content-center reseaux">
                 <a class="nav-link" href="https://www.facebook.fr"><i class="fab fa-facebook-square"></i></a>
                 <a class="nav-link" href="https://www.instagram.fr"><i class="fab fa-instagram"></i></a>
                 <a class="nav-link" href="https://www.twitter.fr"><i class="fab fa-twitter-square"></i></a>
             </div>
             
-        
         </div>
     </div>
 

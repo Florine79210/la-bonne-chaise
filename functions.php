@@ -1,8 +1,7 @@
 <?php
 
-        // LISTE DES ARTICLES
+    // LISTE DES ARTICLES
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 function getArticles() {
 
     return [
@@ -26,10 +25,8 @@ function getArticles() {
     ];
 }
 
-
         // VOIR LES ARTICLES (PAGE D'ACCUEIL)
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 function showArticles($listeArticles){
 
     foreach ($listeArticles as $article){
@@ -82,10 +79,8 @@ function showArticles($listeArticles){
     }                
 }
 
-
         // VOIR LES DETAILS D'UN ARTICLE (PAGE PRODUITS)
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 function showArticleDetails($article){
 
     $article["price"] = number_format($article["price"], 2, ',', ' ');
@@ -127,9 +122,7 @@ function showArticleDetails($article){
             </div>";                 
 }
 
-
 // <-----Ajouter un article via son ID ---------------->
-
 function getArticleFromId($listeArticles, $id){
 
     foreach ($listeArticles as $article){
@@ -140,9 +133,7 @@ function getArticleFromId($listeArticles, $id){
     }
 }
 
-
 // <-----Ajouter un article au panier ---------------->
-
 function ajoutPanier($article){
 
     $articleAjoute = false;
@@ -160,10 +151,8 @@ function ajoutPanier($article){
     }
 }
 
-
         // VOIR LE PANIER (PAGE PANIER & VALIDATION)
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 function showPanier($nomDePage){
 
     foreach ($_SESSION["panier"] as $article){
@@ -205,9 +194,7 @@ function showPanier($nomDePage){
     }
 }
 
-
 // <-----Modifier la quantité d'un article ---------------->
-
 function modifierQuantite(){
 
     $idModifierQuantite = $_POST["idModifierQuantite"];
@@ -219,10 +206,8 @@ function modifierQuantite(){
             }
         }
 }
- 
 
 // <-----Supprimer un article ---------------->
-
  function supprArticle(){
 
         for ($i = 0; $i < count($_SESSION['panier']); $i++){
@@ -238,9 +223,7 @@ function modifierQuantite(){
         }
  }
 
-
 // <-----Afficher les boutons Valider & Vider le panier (PAGE PANIER) ---------------->
-
 function afficherBoutons(){
 
         if (!empty($_SESSION["panier"])){
@@ -266,18 +249,14 @@ function afficherBoutons(){
         }
 }
 
-
 // <-----Vider le Panier ---------------->
-
 function viderPanier(){
 
         $_SESSION['panier'] = array();
         echo "<script> alert(\"Le panier est vide.\");</script>";   
 }
 
-
 // <-----Calculs et affichages pour le Panier ---------------->
-
 function nbrArticlesPanier(){
 
     $nbrArticlesPanier = 0;
@@ -287,7 +266,6 @@ function nbrArticlesPanier(){
     }
     return $nbrArticlesPanier;
 }
-
 
 function totalPrixArticles(){
 
@@ -308,7 +286,6 @@ function affichageTotalPrixArticles(){
     }
 }
 
-
 function totalFraisPort(){
     $totalFraisPort = 0;
 
@@ -326,7 +303,6 @@ function affichageTotalFraisPort(){
         echo "<p class=\"text-center totals\">Total des frais de port : <span>" . $totalFraisPort . " €</span></p>";
     }
 }
-
 
 function totalARegler(){
     

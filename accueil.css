@@ -18,34 +18,33 @@
     font-weight: bold;
 }
 
-
 /* ARTICLES */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-.fiche_article{
+.fiche_article {
     border-style:solid;
     border-width: 3px;
     border-color: #000000;
 }
 
-.fiche_article h2{
+.fiche_article h2 {
     font-family: 'Lora', Garamond, Arial;
     font-weight: bold;
     font-size: 45px;
     padding-left: 30px;
 }
 
-.fiche_article p{
+.fiche_article p {
     font-family: 'Source Sans Pro', Garamond, Arial;
     font-size: 25px;
     padding-left: 30px;
 }
 
-.fiche_article p span{
+.fiche_article p span {
     font-weight:bold;
 }
 
-.fiche_article .btns{
+.fiche_article .btns {
     border-radius: 20px;
     border-style: outset;
     font-family: 'Source Sans Pro', Garamond, Arial;
@@ -53,31 +52,31 @@
     font-size: 25px;
 }
 
-.fiche_article .btns:hover{
+.fiche_article .btns:hover {
     background-color: #ffffff;
     transform: scale(1.1);
     transition: 1.5s;
 }
 
-.fiche_article .btn-details{
+.fiche_article .btn-details {
     color:#000000;
     background-color: #978562;
     border-color: #978562;
     margin-top: 80px;
 }
 
-.fiche_article .btn-details:hover{
+.fiche_article .btn-details:hover {
     color:#978562;
     }
 
-.fiche_article .btn-ajout-panier{
+.fiche_article .btn-ajout-panier {
     color: #ffffff;
     background-color: #7e1111;
     border-color: #7e1111;
     margin-top: -50px;
 }
 
-.fiche_article .btn-ajout-panier:hover{
+.fiche_article .btn-ajout-panier:hover {
     color: #7e1111;
     }
 
@@ -86,9 +85,8 @@
     min-height: 18vh;
 }
 
-
   /* ======================================================================
-MEDIA QUERIES
+                    MEDIA QUERIES
 ====================================================================== */
 
 @media screen and (max-width: 991px) {

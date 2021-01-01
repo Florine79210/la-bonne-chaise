@@ -7,7 +7,7 @@
     font-size: 50px;
 }
 
-.message-panier-vide span{
+.message-panier-vide span {
     font-weight: bold;
 }
 
@@ -31,7 +31,7 @@
     font-size: 25px;
 }
 
-.voir_panier p span{
+.voir_panier p span {
     font-weight:bold;
 }
 
@@ -79,7 +79,6 @@
     max-height: 35vh;
 }
 
-
     /* TOTAL PANIER */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
@@ -91,7 +90,6 @@
 .total_articles span {
     font-weight: bold;
 }
-
 
     /* BTNS VALIDER & VIDER */
 /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
@@ -131,7 +129,7 @@
 }
 
   /* ======================================================================
-MEDIA QUERIES
+                          MEDIA QUERIES
 ====================================================================== */
 
 @media screen and (max-width: 991px) {

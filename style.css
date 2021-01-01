@@ -1,10 +1,9 @@
-html,body
-{
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    margin-top: 12vh;
+html,body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 12vh;
 }
 
 /* NAVBAR */
@@ -29,7 +28,7 @@ nav h1 {
     font-weight: bold;
 }
 
-.navbar-nav a i{
+.navbar-nav a i {
   color: #000000;
   font-size: 40px;
 }
@@ -46,7 +45,7 @@ nav h1 {
   margin-right: 60px;
 }
 
-.navbar-nav .reseaux a i{
+.navbar-nav .reseaux a i {
   color: #ffffff;
 }
 
@@ -60,60 +59,59 @@ nav h1 {
     margin-right: 30px;
   }
   
-  #hamburger:hover {
-    transform: scale(1.2);
-    transition: 1.5s;
-  }
+#hamburger:hover {
+  transform: scale(1.2);
+  transition: 1.5s;
+}
   
-  nav i {
-    color: #000000;
-    font-size: 25px;
-    margin-top: 3px;
-  }
+nav i {
+  color: #000000;
+  font-size: 25px;
+  margin-top: 3px;
+}
 
-  /* FOOTER */
-  /* <------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------> */
+/* FOOTER */
+/* <------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------> */
 
-  .footer {
-    background-color: #978562;
-  }
+.footer {
+  background-color: #978562;
+}
 
-  .footer h3 {
-    font-family: 'Lora', Garamond, Arial;
-    font-weight: bold;
-    color: #000000;
-    font-size: 20px;
-  }
+.footer h3 {
+  font-family: 'Lora', Garamond, Arial;
+  font-weight: bold;
+  color: #000000;
+  font-size: 20px;
+}
 
-  .footer p{
-    font-family: 'Source Sans Pro', Garamond, Arial;
-    font-size: 20px;
-    color: #000000;
-  }
+.footer p {
+  font-family: 'Source Sans Pro', Garamond, Arial;
+  font-size: 20px;
+  color: #000000;
+}
 
-  .footer .reseaux a i {
-    color: #ffffff;
-    font-size: 55px;
-  }
+.footer .reseaux a i {
+  color: #ffffff;
+  font-size: 55px;
+}
 
-  .footer .reseaux a i:hover {
-    transform: scale(1.2);
-    transition: 1.5s;
-    color: #000000;
-  }
+.footer .reseaux a i:hover {
+  transform: scale(1.2);
+  transition: 1.5s;
+  color: #000000;
+}
 
-  .footer .contact  i {
-    color: #000000;
-  }
+.footer .contact  i {
+  color: #000000;
+}
 
-  .footer p span {
-    font-family: 'Lora', Garamond, Arial;
-    font-weight: bold;
-  }
-
+.footer p span {
+  font-family: 'Lora', Garamond, Arial;
+  font-weight: bold;
+}
 
   /* ======================================================================
-MEDIA QUERIES
+                  MEDIA QUERIES
 ====================================================================== */
 
 @media screen and (max-width: 1199px) {
@@ -129,7 +127,7 @@ MEDIA QUERIES
 
 @media screen and (max-width: 991px) {
 
-  .navbar-nav .reseaux a i{
+  .navbar-nav .reseaux a i {
     padding-right: 5px;
     padding-left: 5px;
   }
